@@ -26,13 +26,13 @@ public class LoginPage {
     @FindBy(xpath="//button[.='Sign in']")
     public WebElement SignIn;
 
-    @FindBy (xpath="//*[@id=\"login-form\"]/div[2]/div")
+    @FindBy (xpath="//*[@ id=\"login-form\"]/div[2]/div")
     public WebElement ActualInvalidLoginMessage;
-
+    //*[@id="login-form"]/div[2]/div
+    // *[@id="login-form"]/div[2]/div
 
    public void logIn(){
        
-
        String lib59Username = ConfigurationReader.getProperty("lib59_username");
        String lib59Password = ConfigurationReader.getProperty("lib59_password");
 
@@ -49,12 +49,14 @@ public class LoginPage {
        String student63password = ConfigurationReader.getProperty("stu63_password");
         EmailAddress.sendKeys(student63username);
         Password.sendKeys(student63password);
-        SignIn.click();
-        String AIM = ActualInvalidLoginMessage.getText();
+        SignIn.click();}
+        
+        public void invalidMessage (){
+        //String AIM = ActualInvalidLoginMessage.getText();
         String ExpectedInvalidLoginMessage = "Sorry, Wrong Email or Password";
-        Assert.assertEquals(AIM, ExpectedInvalidLoginMessage);
+      // Assert.assertEquals( ExpectedInvalidLoginMessage, AIM, "doesn't match");
         System.out.println("Expected message: " + ExpectedInvalidLoginMessage);
-        System.out.println("Actual message: " + AIM);
+        System.out.println("Actual message: " + ActualInvalidLoginMessage.getText()); 
         
     }
 

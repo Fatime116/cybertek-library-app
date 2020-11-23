@@ -6,9 +6,7 @@ Feature:InvalidLogin
     Given User is on the login page
 
 
-  @librarian
+  @AV
   Scenario: Invalid student login scenario
-    When User enters valid username
-    And User enters invalid password
-    Then User should not be able to log in
-    And user should see an error message
+    When User enters invalid credentials
+    Then user should see an error message
