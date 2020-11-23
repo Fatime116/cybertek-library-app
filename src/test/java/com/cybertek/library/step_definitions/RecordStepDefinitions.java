@@ -15,7 +15,7 @@ public class RecordStepDefinitions {
 
     @When("User logs in with email and password")
     public void user_logs_in_with_email_and_password() {
-     loginPage.login();
+     loginPage.logIn();
     }
 
     @Then("User see number of {string}")
