@@ -6,6 +6,7 @@ import com.cybertek.library.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Test;
 
 public class Login_StepDefinitions {
 
@@ -34,10 +35,17 @@ public class Login_StepDefinitions {
     }
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
-
-
-
+        
     }
 
 
+    @When("User enters invalid credentials")
+    public void userEntersInvalidCredentials() throws InterruptedException {
+        loginPage.loginAttempt();
+    }
+
+    @Then("user should see an error message")
+    public void userShouldSeeAnErrorMessage() {
+        loginPage.invalidMessage();
+    }
 }
